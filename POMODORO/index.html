@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main>
+        <h1>POMO<span>DORO</span></h1>
+        
+        <div id="conteneur_principal">
+            
+            <div id="conteneur_mode">
+                <button class="btn_Travail">Travail</button>
+                <button class="btn_Pause">Pause</button>
+            </div>
+            
+            <div id="cercle_timer">
+                <p class="timer">00:00</p>
+            </div>
+            
+            <div id="session"> 
+                <p>Session : </p>
+            </div>
+            
+            <div id="controle_button">                
+                <div class="groupe_actions">
+                    <button class="controle_but">Start</button>
+                    <button class="controle_but">Reset</button>
+                </div>
+
+                <div class="temps_inputs">
+                    <label>
+                        <span>Travail (min)</span>
+                        <input type="number" value="0">
+                    </label>
+                    <label>
+                        <span>Pause (min)</span>
+                        <input type="number" value="0">
+                    </label>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
