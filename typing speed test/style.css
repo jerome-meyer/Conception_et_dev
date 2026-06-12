@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&family=Lora:ital,wght@0,500;1,400&display=swap');
+/*La police a été choisi sur google font si jamais meme si on devine facilement avec le lien */
 
 * {
     margin: 0;
@@ -23,7 +24,7 @@ h1 {
     margin-bottom: 2rem;
 }
 
-/*BOUTONS (TEMPS & DIFFICULTÉ)*/
+/*BOUTONS temps et difficulté*/
 #gestion_temps_cadre,
 #gestion_difficulte_cadre {
     display: flex;
@@ -185,7 +186,7 @@ button.actif,
     color: #a89a8e;
 }
 
-/* Boîte de l'historique */
+/* CAdre historique  */
 #historique-container {
     background-color: #fdfbf7;
     border-radius: 15px;
@@ -223,9 +224,6 @@ button.actif,
     border-bottom: 1px solid #f4eee8;
 }
 
-#liste-historique li:last-child {
-    border-bottom: none;
-}
 
 #btn-recommencer {
     background-color: #8c6b5d;
@@ -239,3 +237,5 @@ button.actif,
 #btn-recommencer:hover {
     background-color: #725549;
 }
+
+

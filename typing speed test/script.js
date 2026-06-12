@@ -9,7 +9,7 @@ const btnRecommencer = document.getElementById('btn-recommencer');
 
 let sonErreur = new Audio('./son/bip.mp3'); 
 
-// Textes par difficulté 
+// Textes par difficultés
 const textes = {
     facile: [
         "Le chat dort sur le canapé.",
@@ -25,6 +25,7 @@ const textes = {
         "Parmi les personnes présentes à la cérémonie se trouvaient l'ambassadeur et son épouse."
     ]
 };
+// j'ai fait générer les phrases par IA c'est vrai :(
 
 let chronoLance = false;
 let tempsInitial = 60; 
@@ -62,14 +63,14 @@ function initialiserTest() {
     ecranResultats.style.display = 'none';
 
     // Je decoupe le texte pour faire un span par lettre 
-    let lettres = texteChoisi.split('');
+    let lettres = texteChoisi.split(''); // j'ai découvert split pour ce projet, cela me permet de transformer un mot en un tableau de lettres qui le compose. 
     for (let i = 0; i < lettres.length; i++) {
         let span = document.createElement('span');
         span.textContent = lettres[i];
         conteneurTexte.appendChild(span);
     }
 
-    // Le premier caractere est l'actuel
+    
     conteneurTexte.querySelectorAll('span')[0].classList.add('actuel');
 }
 
@@ -97,18 +98,18 @@ textarea.addEventListener('input', function() {
 
         if (i < texteSaisi.length) {
             // Si la lettre est bonne
-            if (texteSaisi[i] === spans[i].textContent) {
-                spans[i].classList.add('correct');
+            if (texteSaisi[i] === spans[i].textContent) { //
+                spans[i].classList.add('correct');// passer la couleur au vert
                 caracteresCorrects = caracteresCorrects + 1;
             } else {
                 // Si elle est fausse
-                spans[i].classList.add('incorrect');
+                spans[i].classList.add('incorrect');// passer la couleur au rouge
                 erreurDetectee = true;
             }
         }
     }
 
-    // Si y'a une erreur on joue le son
+    // Si il y a une erreur on joue le son
     if (erreurDetectee == true) {
         sonErreur.play();
     }
@@ -117,14 +118,14 @@ textarea.addEventListener('input', function() {
     if (texteSaisi.length < spans.length) {
         spans[texteSaisi.length].classList.add('actuel');
         
-        // Calcul du WPM en live
+        // Calcul du MPM instantanné
         let tempsEcouleMin = (Date.now() - horodatageDebut) / 60000;
         if (tempsEcouleMin > 0) {
             let wpmLive = Math.round((caracteresCorrects / 5) / tempsEcouleMin);
             spanWpmLive.textContent = wpmLive;
         }
     } else {
-        // Le texte est fini
+        // Le texte est fini 
         terminerTest();
     }
 });
@@ -140,7 +141,7 @@ function lancerChrono() {
         if (tempsRestant <= 0) {
             terminerTest();
         }
-    }, 1000); // 1000ms = 1s
+    }, 1000); // 1000ms -> 1s
 }
 
 
@@ -181,7 +182,7 @@ function sauvegarderHistorique(wpm, precision, temps) {
     let histoString = localStorage.getItem('tst_historique');
     let historique = [];
     
-    // Si on a deja un historique on le recupere
+    // Si on a deja un historique on le reprend si non ca sert à rien de le stocker
     if (histoString !== null) {
         historique = JSON.parse(histoString);
     }
